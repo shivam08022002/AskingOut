@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asking You Out</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(45deg, #ff9a9e, #692ec2, #563108);
+      background-size: 200% 200%;
+      animation: gradient 6s infinite alternate;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 25px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .yesbtn {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .yesbtn:hover {
+      background-color: #45a049;
+    }
+
+    .noBtn {
+      background-color: #d23c21;
+      color: white;
+      position: relative;
+    }
+
+    .noBtn:hover {
+      background-color: #ff4533;
+    }
+
+    .shake {
+      animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Hey Ashfi Haroon, would you like to go out on a date with me?</h1>
+    <button class="yesbtn">Yes</button>
+    <button class="noBtn">No</button>
+  </div>
+  <script>
+    const yesBtn = document.querySelector('.yesbtn');
+    const noBtn = document.querySelector('.noBtn');
+    const body = document.body;
+
+    // On "Yes" Button Click
+    yesBtn.addEventListener('click', () => {
+      alert('🎉 Woohoo! Your date is locked with Shivam Yadav! 🎉');
+      body.style.background = "linear-gradient(90deg, #ff9a9e, #a1c4fd)";
+    });
+
+    // On "No" Button Hover
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * window.innerWidth * 0.7;
+      const y = Math.random() * window.innerHeight * 0.7;
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    // On "No" Button Click
+    noBtn.addEventListener('click', () => {
+      noBtn.classList.add('shake');
+      setTimeout(() => noBtn.classList.remove('shake'), 15);
+      alert('😢 Oh no, don’t leave me hanging!');
+    });
+  </script>
+</body>
+</html>
